@@ -1,45 +1,217 @@
-body{
-    font-family: Arial, Helvetica, sans-serif;
-    background:#f4f4f4;
-    margin:0;
+*{
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+
 }
+
+body{
+
+font-family:Arial, Helvetica, sans-serif;
+
+background:#111;
+
+color:white;
+
+}
+
+/* HEADER */
 
 header{
-    background:#222;
-    color:white;
-    text-align:center;
-    padding:20px;
+
+background:#000;
+
+padding:25px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+border-bottom:3px solid #e50914;
+
 }
 
-main{
-    width:80%;
-    margin:auto;
+header h1{
+
+color:#e50914;
+
+font-size:40px;
+
 }
+
+header p{
+
+font-size:18px;
+
+}
+
+/* BANNER */
 
 .banner{
-    width:100%;
-    max-width:900px;
-    display:block;
-    margin:20px auto;
-    border-radius:10px;
+
+position:relative;
+
 }
 
-section{
-    background:white;
-    margin:20px 0;
-    padding:20px;
-    border-radius:10px;
-    box-shadow:0 0 10px rgba(0,0,0,.1);
+.banner img{
+
+width:100%;
+
+height:500px;
+
+object-fit:cover;
+
+filter:brightness(45%);
+
 }
 
-h2{
-    color:#b22222;
+.texto-banner{
+
+position:absolute;
+
+top:50%;
+
+left:8%;
+
+transform:translateY(-50%);
+
+max-width:600px;
+
 }
+
+.texto-banner h2{
+
+font-size:60px;
+
+margin-bottom:20px;
+
+}
+
+.texto-banner p{
+
+font-size:22px;
+
+line-height:1.6;
+
+}
+
+/* CONTEÚDO */
+
+main{
+
+width:90%;
+
+margin:40px auto;
+
+}
+
+.cards{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+gap:30px;
+
+}
+
+.card{
+
+background:#222;
+
+padding:25px;
+
+border-radius:12px;
+
+transition:.4s;
+
+box-shadow:0 0 20px rgba(0,0,0,.5);
+
+}
+
+.card:hover{
+
+transform:scale(1.05);
+
+background:#333;
+
+}
+
+.card h2{
+
+color:#e50914;
+
+margin-bottom:20px;
+
+}
+
+.card p{
+
+line-height:1.8;
+
+text-align:justify;
+
+}
+
+/* FOOTER */
 
 footer{
-    background:#222;
-    color:white;
-    text-align:center;
-    padding:15px;
-    margin-top:20px;
+
+margin-top:40px;
+
+background:#000;
+
+padding:25px;
+
+text-align:center;
+
+border-top:3px solid #e50914;
+
+}
+
+footer p{
+
+margin:8px;
+
+}
+
+/* RESPONSIVO */
+
+@media(max-width:768px){
+
+header{
+
+flex-direction:column;
+
+gap:10px;
+
+}
+
+header h1{
+
+font-size:30px;
+
+}
+
+.banner img{
+
+height:300px;
+
+}
+
+.texto-banner h2{
+
+font-size:35px;
+
+}
+
+.texto-banner p{
+
+font-size:18px;
+
+}
+
 }
