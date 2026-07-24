@@ -1,41 +1,214 @@
-// Seleciona todos os cartões
-const cards = document.querySelectorAll(".card");
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-cards.forEach(card => {
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog sobre Filmes</title>
 
-    const titulo = card.querySelector(".titulo-card");
-    const conteudo = card.querySelector(".conteudo");
-    const simbolo = card.querySelector("span");
+    <link rel="stylesheet" href="style.css">
+</head>
 
-    titulo.addEventListener("click", () => {
+<body>
 
-        const aberto = conteudo.style.maxHeight;
+    <!-- CABEÇALHO -->
 
-        // Fecha todos os outros cartões
-        cards.forEach(outroCard => {
+    <header>
 
-            if (outroCard !== card) {
+        <div class="logo">
+            <h1>🎬 Blog sobre Filmes</h1>
+            <p>Miguel Klaina e Vitor</p>
+        </div>
 
-                outroCard.querySelector(".conteudo").style.maxHeight = null;
-                outroCard.querySelector("span").textContent = "+";
+        <nav>
 
-            }
+            <a href="#">Início</a>
+            <a href="#temas">Temas</a>
+            <a href="#sobre">Sobre</a>
 
-        });
+        </nav>
 
-        // Abre ou fecha o cartão clicado
-        if (aberto) {
+    </header>
 
-            conteudo.style.maxHeight = null;
-            simbolo.textContent = "+";
+    <!-- BANNER -->
 
-        } else {
+    <section class="banner">
 
-            conteudo.style.maxHeight = conteudo.scrollHeight + "px";
-            simbolo.textContent = "−";
+        <img src="https://static-sg.winudf.com/wupload/xy/aprojectadmin/6JEHLrbG.webp" alt="Banner Filmes">
 
-        }
+        <div class="banner-texto">
 
-    });
+            <h2>O Mundo do Cinema</h2>
 
-});
+            <p>
+                Descubra como surgiu o cinema, conheça seus principais gêneros,
+                relembre grandes clássicos e saiba quais são os filmes mais populares da atualidade.
+            </p>
+
+            <a href="#temas" class="botao">
+                Explorar
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- CONTEÚDO -->
+
+    <main id="temas">
+
+        <h2 class="titulo-principal">
+            Temas do Blog
+        </h2>
+
+        <div class="cards">
+
+            <!-- CARD 1 -->
+
+            <div class="card">
+
+                <div class="titulo-card">
+
+                    <h3>🎥 História do Cinema</h3>
+
+                    <span>+</span>
+
+                </div>
+
+                <div class="conteudo">
+
+                    <p>
+
+                        O cinema surgiu no final do século XIX como uma forma inovadora de registrar imagens em movimento.
+
+                        Os primeiros filmes eram curtos, em preto e branco e sem som, conhecidos como cinema mudo.
+
+                        Com o avanço da tecnologia surgiu o cinema sonoro na década de 1920, revolucionando a forma de contar histórias.
+
+                        Mais tarde vieram os filmes coloridos, os efeitos especiais e as tecnologias digitais, tornando o cinema uma das maiores formas de entretenimento do mundo.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- CARD 2 -->
+
+            <div class="card">
+
+                <div class="titulo-card">
+
+                    <h3>🍿 Gêneros de Filmes</h3>
+
+                    <span>+</span>
+
+                </div>
+
+                <div class="conteudo">
+
+                    <p>
+
+                        Os filmes são divididos em diferentes gêneros para organizar as histórias de acordo com seu estilo.
+
+                        Entre os principais estão ação, com cenas cheias de adrenalina; comédia, voltada para o humor; drama, que trabalha emoções; terror, que provoca suspense e medo; e ficção científica, que explora tecnologias e mundos imaginários.
+
+                        Cada gênero oferece uma experiência diferente ao público.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- CARD 3 -->
+
+            <div class="card">
+
+                <div class="titulo-card">
+
+                    <h3>⭐ Filmes Clássicos</h3>
+
+                    <span>+</span>
+
+                </div>
+
+                <div class="conteudo">
+
+                    <p>
+
+                        Os filmes clássicos marcaram época e continuam sendo lembrados até hoje.
+
+                        Muitas dessas produções inovaram na atuação, na direção e na maneira de contar histórias.
+
+                        Seu legado influenciou gerações de cineastas e ajudou a construir a história do cinema moderno.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- CARD 4 -->
+
+            <div class="card">
+
+                <div class="titulo-card">
+
+                    <h3>🔥 Filmes Atuais Mais Populares</h3>
+
+                    <span>+</span>
+
+                </div>
+
+                <div class="conteudo">
+
+                    <p>
+
+                        Os filmes mais populares da atualidade refletem as preferências do público e os avanços tecnológicos.
+
+                        Grandes franquias, animações e filmes de super-heróis dominam as bilheterias.
+
+                        Além disso, os serviços de streaming facilitaram o acesso às produções e contribuíram para o sucesso de novos lançamentos.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- SOBRE -->
+
+    <section id="sobre" class="sobre">
+
+        <h2>Sobre o Projeto</h2>
+
+        <p>
+
+            Este blog foi desenvolvido como trabalho da disciplina de Educação Digital.
+
+            O objetivo é apresentar informações sobre o universo do cinema de forma organizada, moderna e fácil de navegar.
+
+        </p>
+
+    </section>
+
+    <!-- RODAPÉ -->
+
+    <footer>
+
+        <p>© 2026 - Blog sobre Filmes</p>
+
+        <p>Desenvolvido por Miguel Klaina e Vitor</p>
+
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
