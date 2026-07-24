@@ -1,95 +1,365 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+/* RESET */
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog sobre Filmes</title>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-    <link rel="stylesheet" href="style.css">
+/* BODY */
 
-</head>
+body{
 
-<body>
+    font-family:Arial, Helvetica, sans-serif;
 
-<header>
+    background:#141414;
 
-    <h1>🎬 BLOG SOBRE FILMES</h1>
+    color:#ffffff;
 
-    <p>Miguel Klaina • Vitor</p>
+}
 
-</header>
+/* HEADER */
 
-<section class="banner">
+header{
 
-    <img src="imagens/banner.jpg" alt="Banner Filmes">
+    background:#000;
 
-    <div class="texto-banner">
+    display:flex;
 
-        <h2>O Mundo do Cinema</h2>
+    justify-content:space-between;
 
-        <p>Conheça a história, os gêneros, os clássicos e os maiores sucessos do cinema.</p>
+    align-items:center;
 
-    </div>
+    padding:20px 60px;
 
-</section>
+    border-bottom:3px solid #e50914;
 
-<main>
+    position:sticky;
 
-<div class="cards">
+    top:0;
 
-<div class="card">
+    z-index:1000;
 
-<h2>🎥 História do Cinema</h2>
+}
 
-<p>
-O cinema surgiu no final do século XIX como uma forma inovadora de registrar imagens em movimento. Com o passar do tempo surgiram o cinema sonoro, os filmes coloridos e os efeitos especiais digitais.
-</p>
+.logo h1{
 
-</div>
+    color:#e50914;
 
-<div class="card">
+    font-size:38px;
 
-<h2>🍿 Gêneros de Filmes</h2>
+    letter-spacing:2px;
 
-<p>
-Existem diversos gêneros como ação, aventura, terror, comédia, drama, romance e ficção científica. Cada um possui características próprias e atrai diferentes públicos.
-</p>
+}
 
-</div>
+nav a{
 
-<div class="card">
+    color:white;
 
-<h2>⭐ Filmes Clássicos</h2>
+    text-decoration:none;
 
-<p>
-Os clássicos marcaram a história do cinema e influenciaram gerações. São obras lembradas até hoje por sua qualidade e importância cultural.
-</p>
+    margin-left:25px;
 
-</div>
+    font-size:18px;
 
-<div class="card">
+    transition:.3s;
 
-<h2>🔥 Filmes Populares</h2>
+}
 
-<p>
-Hoje, os filmes de super-heróis, animações e produções das plataformas de streaming lideram as bilheterias e fazem sucesso em todo o mundo.
-</p>
+nav a:hover{
 
-</div>
+    color:#e50914;
 
-</div>
+}
 
-</main>
+/* BANNER */
 
-<footer>
+.banner{
 
-<p>© 2026 • Blog sobre Filmes</p>
+    position:relative;
 
-<p>Desenvolvido por Miguel Klaina e Vitor</p>
+    width:100%;
 
-</footer>
+}
 
-</body>
+.banner img{
 
-</html>
+    width:100%;
+
+    height:550px;
+
+    object-fit:cover;
+
+    filter:brightness(35%);
+
+}
+
+.banner-texto{
+
+    position:absolute;
+
+    left:8%;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:600px;
+
+}
+
+.banner-texto h2{
+
+    font-size:60px;
+
+    margin-bottom:20px;
+
+}
+
+.banner-texto p{
+
+    font-size:22px;
+
+    line-height:1.6;
+
+}
+
+/* MAIN */
+
+main{
+
+    width:90%;
+
+    max-width:1200px;
+
+    margin:50px auto;
+
+}
+
+.titulo{
+
+    font-size:36px;
+
+    color:#e50914;
+
+    margin-bottom:30px;
+
+}
+
+/* CARDS */
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+
+    gap:25px;
+
+}
+
+.card{
+
+    background:#202020;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    transition:.3s;
+
+    box-shadow:0 0 15px rgba(0,0,0,.5);
+
+}
+
+.card:hover{
+
+    transform:scale(1.03);
+
+}
+
+/* TÍTULO DO CARD */
+
+.titulo-card{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px;
+
+    background:#2a2a2a;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.titulo-card:hover{
+
+    background:#e50914;
+
+}
+
+.titulo-card h3{
+
+    font-size:24px;
+
+}
+
+.titulo-card span{
+
+    font-size:35px;
+
+    font-weight:bold;
+
+}
+
+/* TEXTO */
+
+.conteudo{
+
+    max-height:0;
+
+    overflow:hidden;
+
+    transition:max-height .5s ease;
+
+    background:#1b1b1b;
+
+}
+
+.conteudo p{
+
+    padding:25px;
+
+    line-height:1.8;
+
+    text-align:justify;
+
+    font-size:17px;
+
+}
+
+/* FOOTER */
+
+footer{
+
+    background:#000;
+
+    text-align:center;
+
+    padding:25px;
+
+    margin-top:50px;
+
+    border-top:3px solid #e50914;
+
+}
+
+footer p{
+
+    margin:8px;
+
+}
+
+/* RESPONSIVO */
+
+@media(max-width:900px){
+
+header{
+
+    flex-direction:column;
+
+    padding:20px;
+
+}
+
+nav{
+
+    margin-top:15px;
+
+}
+
+nav a{
+
+    display:inline-block;
+
+    margin:10px;
+
+}
+
+.banner img{
+
+    height:350px;
+
+}
+
+.banner-texto{
+
+    width:85%;
+
+}
+
+.banner-texto h2{
+
+    font-size:36px;
+
+}
+
+.banner-texto p{
+
+    font-size:18px;
+
+}
+
+.cards{
+
+    grid-template-columns:1fr;
+
+}
+
+.titulo{
+
+    text-align:center;
+
+}
+
+}
+
+@media(max-width:500px){
+
+.logo h1{
+
+    font-size:28px;
+
+}
+
+.banner img{
+
+    height:250px;
+
+}
+
+.banner-texto h2{
+
+    font-size:28px;
+
+}
+
+.banner-texto p{
+
+    font-size:16px;
+
+}
+
+.titulo-card h3{
+
+    font-size:20px;
+
+}
+
+}
