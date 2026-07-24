@@ -1,51 +1,43 @@
-// =====================================
+// ==========================================
 // BLOG SOBRE FILMES
-// Miguel Klaina e Vitor
-// =====================================
+// Desenvolvido por Miguel Klaina e Vitor
+// ==========================================
 
-// Seleciona todos os cartões
-const cards = document.querySelectorAll(".card");
+// Seleciona todos os títulos dos cards
+const titulos = document.querySelectorAll(".titulo-card");
 
-// Percorre cada cartão
-cards.forEach((card) => {
+// Adiciona o evento de clique em cada título
+titulos.forEach((titulo) => {
 
-    const titulo = card.querySelector(".titulo-card");
-    const conteudo = card.querySelector(".conteudo");
-    const simbolo = card.querySelector("span");
-
-    // Clique no título
     titulo.addEventListener("click", () => {
 
-        // Verifica se o cartão clicado já está aberto
-        const aberto = conteudo.style.maxHeight;
+        // Card clicado
+        const conteudo = titulo.nextElementSibling;
 
-        // Fecha todos os outros cartões
-        cards.forEach((outroCard) => {
+        // Símbolo (+ ou -)
+        const simbolo = titulo.querySelector("span");
 
-            if (outroCard !== card) {
+        // Verifica se o card já está aberto
+        const aberto = conteudo.classList.contains("ativo");
 
-                outroCard.querySelector(".conteudo").style.maxHeight = null;
+        // Fecha todos os cards
+        document.querySelectorAll(".conteudo").forEach((texto) => {
 
-                outroCard.querySelector("span").textContent = "+";
-
-            }
+            texto.classList.remove("ativo");
 
         });
 
-        // Se estiver aberto, fecha
-        if (aberto) {
+        // Coloca + em todos
+        document.querySelectorAll(".titulo-card span").forEach((icone) => {
 
-            conteudo.style.maxHeight = null;
+            icone.textContent = "+";
 
-            simbolo.textContent = "+";
+        });
 
-        }
+        // Se estava fechado, abre
+        if (!aberto) {
 
-        // Se estiver fechado, abre
-        else {
-
-            conteudo.style.maxHeight =
-                conteudo.scrollHeight + "px";
+            conteudo.classList.add("ativo");
 
             simbolo.textContent = "−";
 
@@ -55,57 +47,19 @@ cards.forEach((card) => {
 
 });
 
-// =====================================
-// EFEITO NO MENU
-// =====================================
-
-const links = document.querySelectorAll("nav a");
-
-links.forEach((link) => {
-
-    link.addEventListener("mouseenter", () => {
-
-        link.style.transform = "scale(1.08)";
-
-    });
-
-    link.addEventListener("mouseleave", () => {
-
-        link.style.transform = "scale(1)";
-
-    });
-
-});
-
-// =====================================
-// EFEITO NOS CARDS
-// =====================================
-
-cards.forEach((card) => {
-
-    card.addEventListener("mouseenter", () => {
-
-        card.style.transition = ".3s";
-
-    });
-
-});
-
-// =====================================
-// ROLAGEM SUAVE DO BOTÃO
-// =====================================
+// ==========================================
+// ROLAGEM SUAVE DO BOTÃO EXPLORAR
+// ==========================================
 
 const botao = document.querySelector(".botao");
 
-if(botao){
+if (botao) {
 
-    botao.addEventListener("click", function(e){
+    botao.addEventListener("click", function (e) {
 
         e.preventDefault();
 
-        const destino = document.querySelector("#temas");
-
-        destino.scrollIntoView({
+        document.querySelector("#temas").scrollIntoView({
 
             behavior: "smooth"
 
@@ -114,3 +68,68 @@ if(botao){
     });
 
 }
+
+// ==========================================
+// DESTAQUE NO MENU
+// ==========================================
+
+const links = document.querySelectorAll("nav a");
+
+links.forEach((link) => {
+
+    link.addEventListener("mouseenter", () => {
+
+        link.style.color = "#E50914";
+
+    });
+
+    link.addEventListener("mouseleave", () => {
+
+        link.style.color = "";
+
+    });
+
+});
+
+// ==========================================
+// ANIMAÇÃO DE ENTRADA DOS CARDS
+// ==========================================
+
+const cards = document.querySelectorAll(".card");
+
+const aparecer = () => {
+
+    cards.forEach((card) => {
+
+        const topo = card.getBoundingClientRect().top;
+
+        const alturaTela = window.innerHeight;
+
+        if (topo < alturaTela - 100) {
+
+            card.style.opacity = "1";
+
+            card.style.transform = "translateY(0)";
+
+        }
+
+    });
+
+};
+
+// Estado inicial dos cards
+cards.forEach((card) => {
+
+    card.style.opacity = "0";
+
+    card.style.transform = "translateY(40px)";
+
+    card.style.transition = "all .6s ease";
+
+});
+
+// Executa ao carregar
+window.addEventListener("load", aparecer);
+
+// Executa ao rolar a página
+window.addEventListener("scroll", aparecer);

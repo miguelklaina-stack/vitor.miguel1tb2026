@@ -1,214 +1,430 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+/* ===================================================
+   RESET
+=================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#141414;
+    color:#ffffff;
+    overflow-x:hidden;
+}
+
+/* ===================================================
+   CABEÇALHO
+=================================================== */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    background:rgba(0,0,0,.95);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 60px;
+    border-bottom:3px solid #E50914;
+    z-index:1000;
+}
+
+.logo h1{
+    color:#E50914;
+    font-size:40px;
+    margin-bottom:5px;
+}
+
+.logo p{
+    color:#dddddd;
+    font-size:15px;
+}
+
+/* ===================================================
+   MENU
+=================================================== */
+
+nav{
+    display:flex;
+    gap:25px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-size:18px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#E50914;
+}
+
+/* ===================================================
+   BANNER
+=================================================== */
+
+.banner{
+    position:relative;
+    width:100%;
+    height:100vh;
+}
+
+.banner img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    filter:brightness(35%);
+}
+
+.banner::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:100%;
+    height:180px;
+    background:linear-gradient(to top,#141414,transparent);
+}
+
+.banner-texto{
+    position:absolute;
+    top:50%;
+    left:8%;
+    transform:translateY(-50%);
+    width:600px;
+    z-index:2;
+}
+
+.banner-texto h2{
+    font-size:60px;
+    margin-bottom:20px;
+    text-shadow:3px 3px 8px black;
+}
+
+.banner-texto p{
+    font-size:22px;
+    line-height:1.7;
+    margin-bottom:30px;
+}
+
+/* ===================================================
+   BOTÃO
+=================================================== */
+
+.botao{
+    display:inline-block;
+    padding:15px 35px;
+    background:#E50914;
+    color:white;
+    text-decoration:none;
+    font-size:18px;
+    font-weight:bold;
+    border-radius:6px;
+    transition:0.3s;
+}
+
+.botao:hover{
+    background:#B20710;
+    transform:scale(1.05);
+}
+
+/* ===================================================
+   CONTEÚDO
+=================================================== */
+
+main{
+    width:90%;
+    max-width:1200px;
+    margin:70px auto;
+}
+
+.titulo-principal{
+    color:#E50914;
+    font-size:38px;
+    margin-bottom:35px;
+    text-align:center;
+}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog sobre Filmes</title>
+/* ===================================================
+   INÍCIO DOS CARDS
+=================================================== */
 
-    <link rel="stylesheet" href="style.css">
-</head>
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
 
-<body>
+.card{
+    background:#222;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 0 20px rgba(0,0,0,.5);
+    transition:.3s;
+}
 
-    <!-- CABEÇALHO -->
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 10px 25px rgba(0,0,0,.8);
+}/* ===================================================
+   TÍTULO DOS CARDS
+=================================================== */
 
-    <header>
+.titulo-card{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#2c2c2c;
+    padding:20px;
+    cursor:pointer;
+    transition:.3s;
+}
 
-        <div class="logo">
-            <h1>🎬 Blog sobre Filmes</h1>
-            <p>Miguel Klaina e Vitor</p>
-        </div>
+.titulo-card:hover{
+    background:#E50914;
+}
 
-        <nav>
+.titulo-card h3{
+    font-size:22px;
+    color:white;
+}
 
-            <a href="#">Início</a>
-            <a href="#temas">Temas</a>
-            <a href="#sobre">Sobre</a>
+.titulo-card span{
+    font-size:30px;
+    font-weight:bold;
+    transition:.3s;
+}
 
-        </nav>
+/* ===================================================
+   TEXTO DOS CARDS
+=================================================== */
 
-    </header>
+.conteudo{
 
-    <!-- BANNER -->
+    max-height:0;
 
-    <section class="banner">
+    overflow:hidden;
 
-        <img src="https://static-sg.winudf.com/wupload/xy/aprojectadmin/6JEHLrbG.webp" alt="Banner Filmes">
+    background:#1b1b1b;
 
-        <div class="banner-texto">
+    transition:max-height .5s ease;
 
-            <h2>O Mundo do Cinema</h2>
+}
 
-            <p>
-                Descubra como surgiu o cinema, conheça seus principais gêneros,
-                relembre grandes clássicos e saiba quais são os filmes mais populares da atualidade.
-            </p>
+.conteudo.ativo{
 
-            <a href="#temas" class="botao">
-                Explorar
-            </a>
+    max-height:600px;
 
-        </div>
+}
 
-    </section>
+.conteudo p{
 
-    <!-- CONTEÚDO -->
+    padding:25px;
 
-    <main id="temas">
+    line-height:1.8;
 
-        <h2 class="titulo-principal">
-            Temas do Blog
-        </h2>
+    text-align:justify;
 
-        <div class="cards">
+    font-size:17px;
 
-            <!-- CARD 1 -->
+    color:#eeeeee;
 
-            <div class="card">
+}
 
-                <div class="titulo-card">
+/* ===================================================
+   SEÇÃO SOBRE
+=================================================== */
 
-                    <h3>🎥 História do Cinema</h3>
+.sobre{
 
-                    <span>+</span>
+    width:90%;
 
-                </div>
+    max-width:1200px;
 
-                <div class="conteudo">
+    margin:60px auto;
 
-                    <p>
+    background:#202020;
 
-                        O cinema surgiu no final do século XIX como uma forma inovadora de registrar imagens em movimento.
+    padding:35px;
 
-                        Os primeiros filmes eram curtos, em preto e branco e sem som, conhecidos como cinema mudo.
+    border-radius:12px;
 
-                        Com o avanço da tecnologia surgiu o cinema sonoro na década de 1920, revolucionando a forma de contar histórias.
+    box-shadow:0 0 15px rgba(0,0,0,.5);
 
-                        Mais tarde vieram os filmes coloridos, os efeitos especiais e as tecnologias digitais, tornando o cinema uma das maiores formas de entretenimento do mundo.
+}
 
-                    </p>
+.sobre h2{
 
-                </div>
+    color:#E50914;
 
-            </div>
+    margin-bottom:20px;
 
-            <!-- CARD 2 -->
+    font-size:32px;
 
-            <div class="card">
+}
 
-                <div class="titulo-card">
+.sobre p{
 
-                    <h3>🍿 Gêneros de Filmes</h3>
+    line-height:1.8;
 
-                    <span>+</span>
+    text-align:justify;
 
-                </div>
+}
 
-                <div class="conteudo">
+/* ===================================================
+   RODAPÉ
+=================================================== */
 
-                    <p>
+footer{
 
-                        Os filmes são divididos em diferentes gêneros para organizar as histórias de acordo com seu estilo.
+    margin-top:60px;
 
-                        Entre os principais estão ação, com cenas cheias de adrenalina; comédia, voltada para o humor; drama, que trabalha emoções; terror, que provoca suspense e medo; e ficção científica, que explora tecnologias e mundos imaginários.
+    background:#000;
 
-                        Cada gênero oferece uma experiência diferente ao público.
+    padding:30px;
 
-                    </p>
+    text-align:center;
 
-                </div>
+    border-top:3px solid #E50914;
 
-            </div>
+}
 
-            <!-- CARD 3 -->
+footer p{
 
-            <div class="card">
+    margin:8px 0;
 
-                <div class="titulo-card">
+    color:#cccccc;
 
-                    <h3>⭐ Filmes Clássicos</h3>
+}
 
-                    <span>+</span>
+/* ===================================================
+   RESPONSIVIDADE
+=================================================== */
 
-                </div>
+@media(max-width:900px){
 
-                <div class="conteudo">
+    header{
 
-                    <p>
+        flex-direction:column;
 
-                        Os filmes clássicos marcaram época e continuam sendo lembrados até hoje.
+        padding:20px;
 
-                        Muitas dessas produções inovaram na atuação, na direção e na maneira de contar histórias.
+        gap:15px;
 
-                        Seu legado influenciou gerações de cineastas e ajudou a construir a história do cinema moderno.
+    }
 
-                    </p>
+    nav{
 
-                </div>
+        flex-wrap:wrap;
 
-            </div>
+        justify-content:center;
 
-            <!-- CARD 4 -->
+    }
 
-            <div class="card">
+    .banner{
 
-                <div class="titulo-card">
+        height:70vh;
 
-                    <h3>🔥 Filmes Atuais Mais Populares</h3>
+    }
 
-                    <span>+</span>
+    .banner-texto{
 
-                </div>
+        width:90%;
 
-                <div class="conteudo">
+    }
 
-                    <p>
+    .banner-texto h2{
 
-                        Os filmes mais populares da atualidade refletem as preferências do público e os avanços tecnológicos.
+        font-size:40px;
 
-                        Grandes franquias, animações e filmes de super-heróis dominam as bilheterias.
+    }
 
-                        Além disso, os serviços de streaming facilitaram o acesso às produções e contribuíram para o sucesso de novos lançamentos.
+    .banner-texto p{
 
-                    </p>
+        font-size:18px;
 
-                </div>
+    }
 
-            </div>
+    .cards{
 
-        </div>
+        grid-template-columns:1fr;
 
-    </main>
+    }
 
-    <!-- SOBRE -->
+}
 
-    <section id="sobre" class="sobre">
+@media(max-width:600px){
 
-        <h2>Sobre o Projeto</h2>
+    .logo h1{
 
-        <p>
+        font-size:28px;
 
-            Este blog foi desenvolvido como trabalho da disciplina de Educação Digital.
+    }
 
-            O objetivo é apresentar informações sobre o universo do cinema de forma organizada, moderna e fácil de navegar.
+    nav{
 
-        </p>
+        gap:12px;
 
-    </section>
+    }
 
-    <!-- RODAPÉ -->
+    nav a{
 
-    <footer>
+        font-size:16px;
 
-        <p>© 2026 - Blog sobre Filmes</p>
+    }
 
-        <p>Desenvolvido por Miguel Klaina e Vitor</p>
+    .banner{
 
-    </footer>
+        height:55vh;
 
-    <script src="script.js"></script>
+    }
 
-</body>
+    .banner-texto h2{
 
-</html>
+        font-size:30px;
+
+    }
+
+    .banner-texto p{
+
+        font-size:16px;
+
+    }
+
+    .titulo-principal{
+
+        font-size:30px;
+
+    }
+
+    .titulo-card h3{
+
+        font-size:18px;
+
+    }
+
+    .titulo-card span{
+
+        font-size:24px;
+
+    }
+
+    .conteudo p{
+
+        font-size:16px;
+
+        padding:18px;
+
+    }
+
+}
